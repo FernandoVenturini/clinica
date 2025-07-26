@@ -833,12 +833,20 @@
             // Get form values
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link
+            const subject = encodeURIComponent(`Contato do site - ${service}`);
+            const body = encodeURIComponent(`Nome: ${name}\nEmail: ${email}\nTelefone: ${phone}\nServiço: ${service}\n\nMensagem:\n${message}`);
+            const mailtoLink = `mailto:patricia_10017@hotmail.com?subject=${subject}&body=${body}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
             
             // Show success message
-            alert(`Obrigado, ${name}! Recebemos sua mensagem e entraremos em contato em breve no email ${email}.`);
-            
-            // Reset form
-            this.reset();
+            alert(`Obrigado, ${name}! Iremos abrir seu cliente de email para enviar a mensagem para patricia_10017@hotmail.com. Se não abrir, envie diretamente para este email.`);
         });
 
         // Header scroll effect
